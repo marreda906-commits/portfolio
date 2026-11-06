@@ -15,7 +15,7 @@ export function Contact() {
       <div className="contact-links"><a className="email-link" href={`mailto:${siteConfig.email}`}>{siteConfig.email}<span aria-hidden="true">↗</span></a>
         <a className="phone-link" href={siteConfig.phone.href}>{siteConfig.phone.label}</a>
         <button className="copy-button" onClick={copyEmail}>Copier l’adresse e-mail <span aria-hidden="true">⧉</span></button><p className="copy-status" role="status">{message}</p>
-        <div className="social-links"><a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>{siteConfig.github && <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}<a href={assetPath(siteConfig.cvUrl)} download>Mon CV ↓</a></div>
+        <div className="social-links"><a href={siteConfig.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>{siteConfig.github && <a href={siteConfig.github} target="_blank" rel="noopener noreferrer">GitHub ↗</a>}<a href={assetPath(siteConfig.cvUrl)} download>Mon CV ↓</a><a href={assetPath(siteConfig.portfolioUrl)} download>Portfolio PDF ↓</a></div>
       </div>
     </div>
   </div></section>;

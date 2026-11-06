@@ -4,10 +4,11 @@ Portfolio professionnel en français, réalisé à partir du CV fourni : génie 
 
 ## Ce qui est livré
 
-- Accueil avec identité, portrait extrait du CV et présentation polyvalente.
+- Accueil avec identité, portrait optimisé fourni et présentation polyvalente.
 - Huit fiches : le PFA YAZAKI et les sept projets techniques du CV.
 - Filtres par domaine, pages détaillées, expériences, formation et compétences.
 - Thèmes sombre et clair, navigation mobile, liens de contact et téléchargement du CV.
+- Galeries agrandissables, 22 médias WebP et portfolio éditorial A4 de 13 pages distinct du CV.
 - Export statique pour GitHub Pages et workflow de publication automatique.
 - Code original en Next.js 16 / React 19 / TypeScript ; organisation `frontend/src/config`, `src/data`, `src/components`, `src/app` et `public`.
 
@@ -28,36 +29,33 @@ Ouvrez l’adresse affichée, généralement `http://localhost:3000`.
 Pour vérifier la version à publier :
 
 ```powershell
+$env:NEXT_PUBLIC_BASE_PATH='/portfolio'
+$env:NEXT_PUBLIC_SITE_URL='https://marreda906-commits.github.io/portfolio'
 npm.cmd run build
 npm.cmd run preview
 ```
 
-Ouvrez `http://localhost:4173`. Arrêtez le serveur avec Ctrl+C. Le dossier `out` contient la version statique produite. N’utilisez pas `next start` pour cet export. Ne double-cliquez pas sur les fichiers HTML : utilisez le serveur d’aperçu pour charger correctement les pages et ressources.
+Ouvrez `http://localhost:4173/portfolio/`. Arrêtez le serveur avec Ctrl+C. Le dossier `out` contient la version statique produite. N’utilisez pas `next start` pour cet export. Ne double-cliquez pas sur les fichiers HTML : utilisez le serveur d’aperçu pour charger correctement les pages et ressources.
 
-L’archive livrée inclut déjà `frontend/out`. Pour la consulter immédiatement, sans installer les dépendances, ouvrez PowerShell dans `frontend` et exécutez `node scripts/preview.mjs` (Node.js doit être installé). Pour toute modification du contenu, reconstruisez ensuite le site avec les commandes ci-dessus.
+L’archive livrée inclut déjà `frontend/out`. Pour la consulter immédiatement, sans installer les dépendances, ouvrez PowerShell dans `frontend` et exécutez `$env:NEXT_PUBLIC_BASE_PATH='/portfolio'` puis `node scripts/preview.mjs` (Node.js doit être installé). Pour toute modification du contenu, reconstruisez ensuite le site avec les commandes ci-dessus.
 
 ## Publier gratuitement sur GitHub Pages
 
-Le nom de compte GitHub de Mohamed Reda n’étant pas fourni, les exemples utilisent `VOTRE_COMPTE`. Remplacez-le uniquement par votre identifiant réel.
+Le dépôt existe déjà : https://github.com/marreda906-commits/portfolio. La mise à jour se publie depuis le dossier original `portfolio-reda` (qui possède son historique Git) :
 
-1. Sur GitHub, créez un dépôt **public** nommé `portfolio`. Choisissez un dépôt vide, sans README ajouté par GitHub.
-2. Ouvrez PowerShell dans **le dossier `portfolio-reda`**, qui contient `frontend`, `docs` et `.github`. Exécutez :
+```powershell
+Set-Location 'C:\Users\krmhh\Documents\ChatGPT\Reda ccv\portfolio-reda'
+git status
+git add README.md docs scripts frontend/src frontend/public
+git commit -m "Intégration des images et portfolio PDF V2"
+git push origin main
+```
 
-   ```powershell
-   git init
-   git add .
-   git commit -m "Création du portfolio de Mohamed Reda Marzouq"
-   git branch -M main
-   git remote add origin https://github.com/VOTRE_COMPTE/portfolio.git
-   git push -u origin main
-   ```
+Si cette version a déjà été publiée, ces commandes ne sont pas nécessaires. Les modifications suivantes utilisent la même procédure avec un nouveau message de commit. L’archive ZIP ne contient pas le dossier `.git` : pour travailler depuis une autre machine, clonez le dépôt puis copiez les fichiers modifiés dans ce clone.
 
-   Git peut vous demander de vous connecter à votre compte. Utilisez votre connexion GitHub habituelle ; ne placez aucun mot de passe dans les fichiers du projet. Si Git demande votre identité pour le commit, renseignez votre propre nom et votre adresse GitHub.
+Dans **Settings → Pages**, la source doit être **GitHub Actions**. Le workflow `Deploy portfolio to GitHub Pages` se déclenche au push sur `main` ; il peut aussi être relancé dans l’onglet **Actions**. Attendez les étapes `build` et `deploy` vertes.
 
-3. Dans le dépôt, allez à **Settings → Pages → Build and deployment → Source → GitHub Actions**.
-4. Ouvrez **Actions → Deploy portfolio to GitHub Pages → Run workflow**, choisissez `main`, puis lancez. Si le premier lancement avait échoué avant l’activation de Pages, relancez-le maintenant.
-5. Attendez que les étapes `build` et `deploy` soient vertes. GitHub indique l’adresse dans **Settings → Pages** et dans le résultat du déploiement.
-6. Pour un dépôt nommé `portfolio`, l’adresse attendue est `https://VOTRE_COMPTE.github.io/portfolio/`.
+Adresse du site : https://marreda906-commits.github.io/portfolio/
 
 Le workflow lit automatiquement le chemin du dépôt depuis `configure-pages`. Les images, le PDF, les liens de projets et les fichiers JavaScript fonctionnent ainsi sous `/portfolio/`, sans modifier les composants. Un dépôt `VOTRE_COMPTE.github.io` fonctionne aussi, à la racine du domaine. Pour un domaine personnalisé, configurez-le dans Pages puis relancez le workflow ; l’achat d’un domaine n’est pas nécessaire.
 
@@ -115,3 +113,7 @@ npm.cmd run build
 ```
 
 Le dossier `docs` contient l’analyse, la traçabilité du contenu et le compte rendu des vérifications effectuées. Le site n’a pas été publié sur votre compte GitHub dans cette livraison.
+
+## Livraison V2
+
+Voir [les changements et la régénération du PDF](docs/CHANGEMENTS-V2.md), [la correspondance des 22 médias](docs/ASSET-MAP.md), [le système visuel](docs/DESIGN-SYSTEM.md) et [les vérifications V2](docs/VERIFICATIONS-V2.md). Les documents de vérification antérieurs décrivent la première version.

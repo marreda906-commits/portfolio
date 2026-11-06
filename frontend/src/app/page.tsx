@@ -13,9 +13,9 @@ export default function HomePage() {
         <p className="eyebrow hero-eyebrow"><span className="status-dot"/> Portfolio d’ingénierie / ENSAM Meknès</p>
         <h1 id="hero-title"><span>Mohamed Reda</span><strong>MARZOUQ<span className="name-dot">.</span></strong></h1>
         <p className="hero-role">{siteConfig.role}</p>
-        <p className="hero-description">De la mécanique au numérique,<br className="desktop-break"/> concevoir, connecter et comprendre<br className="desktop-break"/> les systèmes industriels.</p>
+        <p className="hero-description">Concevoir, automatiser et fiabiliser les systèmes industriels.</p><p className="hero-subtitle">Ingénierie électrique, mécanique et technologies numériques : une approche transversale des systèmes industriels.</p>
         <div className="hero-actions"><a className="button button-primary" href="#projects">Explorer mes projets <span aria-hidden="true">↘</span></a><a className="button button-secondary" href={assetPath(siteConfig.cvUrl)} download>Mon CV <span aria-hidden="true">↓</span></a></div>
-        <div className="hero-bottom"><span>{siteConfig.location}</span><span>Commande & maintenance industrielles</span></div>
+        <a className="portfolio-download text-link" href={assetPath(siteConfig.portfolioUrl)} download>Télécharger mon portfolio PDF <span aria-hidden="true">↓</span></a><div className="hero-bottom"><span>{siteConfig.location}</span><span>Commande & maintenance industrielles</span></div>
       </div>
       <figure className="portrait"><div className="portrait-top"><span>01 / PROFIL</span><span aria-hidden="true">↗</span></div><img src={assetPath(siteConfig.portrait)} alt="Portrait de Mohamed Reda Marzouq" width="1254" height="1254" fetchPriority="high"/><figcaption><span>MOHAMED REDA MARZOUQ</span><span>Génie électromécanique</span></figcaption><div className="portrait-marker" aria-hidden="true">MR /<br/>ENSAM</div></figure>
       </div>
@@ -29,6 +29,7 @@ export default function HomePage() {
       <div className="timeline-heading education-heading"><span>Formation</span><span>2021 — 2027</span></div><div className="education-grid">{education.map((e,i) => <article className="education-item" key={e.title}><span className="education-index">0{i+1}</span><p className="eyebrow">{e.date}</p><h3>{e.title}</h3><p className="education-place">{e.place}</p><p>{e.detail}</p></article>)}</div>
     </section>
     <section id="skills" className="section skills-section" aria-labelledby="skills-title"><div className="container"><div className="section-heading"><div><p className="eyebrow">04 / Compétences</p><h2 id="skills-title">Une boîte à outils<br/><em>pluridisciplinaire.</em></h2></div><p className="section-intro">Les méthodes et technologies<br/>de mon parcours.</p></div><div className="skills-grid">{skills.map((s,i) => <article className="skill-item" key={s.title}><p className="skill-number">{(i+1).toString().padStart(2,"0")}</p><div><h3>{s.title}</h3><ul className="tags">{s.items.map(t => <li key={t}>{t}</li>)}</ul></div></article>)}</div></div></section>
+    <section className="container field-gallery" aria-label="Photographies du stage LafargeHolcim"><p className="eyebrow">Sur le terrain / LafargeHolcim</p><div>{[19,20,21,22].map((id,i)=><figure key={id}><a href={assetPath(`/home/${id}.webp`)} target="_blank" rel="noopener noreferrer" aria-label={`Agrandir la photographie ${i+1} du stage LafargeHolcim`}><img src={assetPath(`/home/${id}.webp`)} alt={i===0?"Équipement HAVER dans l’environnement de maintenance":"Photographie de terrain du stage LafargeHolcim"} loading="lazy" width="960" height="1280"/></a><figcaption>{i===0?"Équipement HAVER":"Environnement du stage"}</figcaption></figure>)}</div></section>
     <Contact/>
   </>;
 }

@@ -11,10 +11,11 @@ export const siteConfig = {
   email: "m.reda.marzouq@gmail.com",
   phone: { label: "+212 6 21 67 05 52", href: "tel:+212621670552" },
   linkedin: "https://www.linkedin.com/in/mohamed-reda-marzouq",
-  // No GitHub profile was supplied. Set a verified URL to show the link.
-  github: "",
+  // Dépôt public communiqué par le propriétaire.
+  github: "https://github.com/marreda906-commits/portfolio",
+  portfolioUrl: "/home/Portfolio_Mohamed_Reda_MARZOUQ.pdf",
   cvUrl: "/home/CV_Mohamed_Reda_MARZOUQ.pdf",
-  portrait: "/home/portrait.png",
+  portrait: "/home/01.webp",
   url: process.env.NEXT_PUBLIC_SITE_URL || "",
 };
 

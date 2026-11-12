@@ -7,12 +7,25 @@ import { navItems } from "@/config/site";
 export function Header() {
   const [light, setLight] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState("");
   useEffect(() => {
     try {
       const saved = localStorage.getItem("reda-theme") === "light";
       setLight(saved);
       document.documentElement.dataset.theme = saved ? "light" : "dark";
     } catch { /* A blocked storage API must not break navigation. */ }
+  }, []);
+  useEffect(() => {
+    const sections = navItems.map(item => document.getElementById(item.id)).filter((section): section is HTMLElement => Boolean(section));
+    if (!sections.length) return;
+    const update = () => {
+      const marker = window.innerHeight * 0.38;
+      const current = sections.reduce((best, section) => section.getBoundingClientRect().top <= marker ? section : best, sections[0]);
+      setActive(current.id);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
   }, []);
   function toggleTheme() {
     const next = !light;
@@ -26,7 +39,7 @@ export function Header() {
         <span className="brand-symbol">MR<span>.</span></span><span className="brand-name">MOHAMED REDA<br/><strong>MARZOUQ</strong></span>
       </Link>
       <nav id="main-navigation" className={open ? "navigation is-open" : "navigation"} aria-label="Navigation principale">
-        {navItems.map((item, i) => <Link key={item.id} href={`/#${item.id}`} onClick={() => setOpen(false)}><span className="nav-number">0{i+1}</span>{item.label}</Link>)}
+        {navItems.map((item, i) => <Link key={item.id} href={`/#${item.id}`} aria-current={active === item.id ? "true" : undefined} onClick={() => setOpen(false)}><span className="nav-number">0{i+1}</span>{item.label}</Link>)}
       </nav>
       <div className="header-tools">
         <button className="icon-button" onClick={toggleTheme} aria-label={`Activer le thème ${light ? "sombre" : "clair"}`} title={`Thème ${light ? "sombre" : "clair"}`}><span aria-hidden="true">{light ? "☾" : "☼"}</span></button>

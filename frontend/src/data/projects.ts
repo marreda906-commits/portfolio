@@ -1,8 +1,13 @@
-export type ProjectMedia = { src: string; alt: string; caption: string; width: number; height: number; illustration: boolean; sourceId: number };
+export type ProjectMedia = { src: string; alt: string; caption: string; width: number; height: number; illustration: boolean; sourceId: number; badge?: string };
+
+export type ProjectVideo = { src: string; poster: string; caption: string; duration: string };
+export type ProjectDetail = { title: string; body: string };
 
 export type Project = {
   cover: ProjectMedia;
   gallery: ProjectMedia[];
+  video?: ProjectVideo;
+  details?: ProjectDetail[];
   background: string;
   outcomes: string;
   status: string;
@@ -10,14 +15,14 @@ export type Project = {
   title: string;
   context: string;
   date: string;
-  category: "Vision & embarqué" | "Énergie & commande" | "Mécanique & simulation";
+  category: "Vision & embarqué" | "Énergie & commande" | "Mécanique & simulation" | "Maintenance & fiabilité";
   summary: string;
   tags: string[];
   objective: string;
   work: string[];
   scope: string;
   steps: string[];
-  visual: "vision" | "energy" | "motor" | "battery" | "cnc" | "lane" | "robot" | "gear";
+  visual: "vision" | "energy" | "motor" | "battery" | "cnc" | "lane" | "robot" | "gear" | "maintenance";
   featured?: boolean;
 };
 
@@ -110,36 +115,54 @@ export const projects: Project[] = [
     "date": "2026 · En cours",
     "category": "Énergie & commande",
     "visual": "energy",
-    "summary": "Centraliser les mesures électriques pour préparer le suivi énergétique du campus.",
+    "summary": "Relier acquisition, communication industrielle et interface de supervision pour suivre l’énergie du campus.",
     "tags": [
       "Raspberry Pi",
       "Modbus RTU/TCP",
-      "IIoT"
+      "IIoT",
+      "Jumeau numérique"
     ],
     "objective": "Concevoir un suivi énergétique à partir des centrales de mesure, onduleurs et transformateurs électriques.",
     "work": [
-      "Conception de l’acquisition des données énergétiques du campus.",
-      "Interconnexion via Raspberry Pi et Modbus RTU/TCP pour centraliser les données et préparer une supervision en temps réel."
+      "Conception de la chaîne d’acquisition des données énergétiques du campus.",
+      "Interconnexion des centrales de mesure, onduleurs et transformateurs via Raspberry Pi et Modbus RTU/TCP.",
+      "Préparation d’une interface de supervision et d’une représentation numérique du campus."
     ],
-    "scope": "Projet en cours : conception du suivi énergétique et interconnexion des sources de mesure. La supervision temps réel est en préparation.",
+    "scope": "Projet en cours : l’architecture de collecte, la communication Modbus et les interfaces de démonstration sont documentées. Les valeurs du tableau de bord fourni sont illustratives et ne constituent pas une campagne de mesures validée.",
     "steps": [
       "Mesures électriques",
       "Modbus & Raspberry Pi",
-      "Préparation de la supervision"
+      "Supervision & modèle 3D"
     ],
     "background": "Le projet vise à réunir les données électriques dispersées du campus ENSAM Meknès. L’enjeu est l’interconnexion des équipements avant la mise en place d’une supervision énergétique.",
-    "outcomes": "Conception de la collecte et de l’interconnexion via Raspberry Pi et Modbus. Projet en cours : aucune série de mesures validées n’est fournie.",
+    "outcomes": "Une architecture d’acquisition et d’interconnexion a été définie autour de Raspberry Pi et Modbus. Une maquette de tableau de bord illustre l’exploitation prévue des données ; ses valeurs ne sont pas présentées comme des mesures réelles validées.",
     "status": "En cours",
+    "details": [
+      { "title": "Architecture technique", "body": "Les centrales de mesure, onduleurs et transformateurs constituent les sources envisagées. Le Raspberry Pi joue le rôle de passerelle de collecte avant la centralisation des informations." },
+      { "title": "Acquisition & communication", "body": "La communication repose sur Modbus RTU/TCP. Le travail documenté porte sur l’interconnexion et la préparation de l’acquisition ; aucune série de mesures certifiée n’est fournie dans le lot." },
+      { "title": "Interface & représentation du campus", "body": "Le tableau de bord fourni montre la structure fonctionnelle attendue : indicateurs, profil de consommation, répartition par usage et état des équipements. Les chiffres visibles servent uniquement à illustrer l’interface." }
+    ],
     "cover": {
-      "src": "/projects/supervision-energetique/06.webp",
-      "caption": "Illustration de présentation du campus ENSAM Meknès — provenance non confirmée. Les chiffres à l’écran ne sont pas présentés comme des mesures validées.",
-      "alt": "Illustration de présentation du campus ENSAM Meknès — provenance non confirmée. Les chiffres à l’écran ne sont pas présentés comme des mesures validées.",
-      "width": 1447,
-      "height": 1087,
+      "src": "/projects/supervision-energetique/23.webp",
+      "caption": "Maquette du tableau de bord de supervision énergétique ENSAM Meknès. Les valeurs affichées sont illustratives et ne sont pas présentées comme des mesures validées.",
+      "alt": "Maquette du tableau de bord de supervision énergétique du campus ENSAM Meknès.",
+      "width": 1672,
+      "height": 941,
       "illustration": true,
-      "sourceId": 6
+      "sourceId": 23,
+      "badge": "Maquette d’interface · données illustratives"
     },
     "gallery": [
+      {
+        "src": "/projects/supervision-energetique/23.webp",
+        "caption": "Maquette du tableau de bord de supervision énergétique ENSAM Meknès. Les valeurs affichées sont illustratives et ne sont pas présentées comme des mesures validées.",
+        "alt": "Maquette du tableau de bord de supervision énergétique du campus ENSAM Meknès.",
+        "width": 1672,
+        "height": 941,
+        "illustration": true,
+        "sourceId": 23,
+        "badge": "Maquette d’interface · données illustratives"
+      },
       {
         "src": "/projects/supervision-energetique/06.webp",
         "caption": "Illustration de présentation du campus ENSAM Meknès — provenance non confirmée. Les chiffres à l’écran ne sont pas présentés comme des mesures validées.",
@@ -342,6 +365,12 @@ export const projects: Project[] = [
     "background": "Le suivi de voie repose sur l’exploitation d’images d’une piste. Le projet associe détection des marquages, filtrage et logique de correction de trajectoire.",
     "outcomes": "Traitement vidéo et logique de correction développés. Les photographies documentent la plateforme et la piste de laboratoire, sans démontrer un niveau de performance autonome.",
     "status": "Développement et essais en laboratoire",
+    "video": {
+      "src": "/projects/suivi-de-voie/demonstration-suivi-voie.mp4",
+      "poster": "/projects/suivi-de-voie/poster-demonstration.webp",
+      "duration": "19 s",
+      "caption": "Démonstration réelle en laboratoire : le prototype avance sur la piste balisée et négocie deux courbes. La séquence documente un prototype pédagogique, sans mesure chiffrée de précision ou de robustesse."
+    },
     "cover": {
       "src": "/projects/suivi-de-voie/15.webp",
       "caption": "Plateforme sur une piste balisée en laboratoire, avec poste de supervision.",
@@ -493,6 +522,49 @@ export const projects: Project[] = [
         "illustration": false,
         "sourceId": 17
       }
+    ]
+  },
+  {
+    "slug": "maintenance-preventive-lafarge",
+    "title": "Optimisation de la maintenance préventive des ensacheuses industrielles — LafargeHolcim",
+    "context": "LafargeHolcim Maroc · Stage",
+    "date": "Juillet – août 2025",
+    "category": "Maintenance & fiabilité",
+    "visual": "maintenance",
+    "summary": "Structurer la maintenance préventive des ensacheuses HAVER ROTO PACKER à partir des défaillances et de la criticité.",
+    "tags": ["Maintenance préventive", "AMDEC", "Pareto", "MTBF"],
+    "objective": "Analyser les défaillances des ensacheuses HAVER ROTO PACKER et établir des priorités ainsi que des fréquences d’intervention préventive.",
+    "work": [
+      "Analyse des défaillances et identification des équipements critiques.",
+      "Hiérarchisation des problèmes à l’aide de l’AMDEC et du diagramme de Pareto.",
+      "Exploitation du MTBF pour étudier la fiabilité des équipements.",
+      "Élaboration de recommandations et d’une fiche d’aide à la maintenance préventive."
+    ],
+    "scope": "Étude de maintenance et recommandations réalisées pendant le stage. Les documents fournis présentent la criticité, le classement des défaillances et des périodicités proposées ; aucun gain de disponibilité non mesuré n’est revendiqué.",
+    "steps": ["Historique & défaillances", "AMDEC & criticité", "Pareto & priorités", "Plan préventif"],
+    "background": "Le stage s’est déroulé dans l’environnement industriel de LafargeHolcim Maroc à Meknès. L’étude porte sur les ensacheuses HAVER ROTO PACKER, dont la continuité de fonctionnement dépend de sous-ensembles d’entraînement, de remplissage, de transmission et de fluidisation.",
+    "outcomes": "Les livrables disponibles comprennent un tableau AMDEC, un diagramme de Pareto et une fiche d’aide à la maintenance. Ils permettent de documenter les organes critiques et des périodicités d’intervention proposées, sans démontrer à eux seuls un gain chiffré de disponibilité.",
+    "status": "Étude de maintenance & recommandations",
+    "details": [
+      { "title": "Ensacheuses étudiées", "body": "L’analyse fournie couvre l’ensemble HAVER ROTO PACKER et plusieurs fonctions : entraînement, station de remplissage, transmission et fluidisation." },
+      { "title": "AMDEC, Pareto & MTBF", "body": "L’AMDEC structure l’évaluation de la criticité, tandis que le Pareto hiérarchise les familles de défaillances. Le MTBF est mobilisé pour orienter les fréquences d’intervention préventive." },
+      { "title": "Recommandations établies", "body": "La fiche d’aide relie les organes, modes et causes de défaillance, effets sur le système et périodes d’intervention proposées. Elle constitue un support de préparation de la maintenance." }
+    ],
+    "cover": {
+      "src": "/home/19.webp",
+      "caption": "Équipement HAVER observé pendant le stage de maintenance chez LafargeHolcim Maroc.",
+      "alt": "Équipement HAVER dans l’environnement industriel de LafargeHolcim Maroc.",
+      "width": 960,
+      "height": 1280,
+      "illustration": false,
+      "sourceId": 19
+    },
+    "gallery": [
+      { "src": "/home/19.webp", "caption": "Équipement HAVER observé pendant le stage de maintenance chez LafargeHolcim Maroc.", "alt": "Équipement HAVER dans l’environnement industriel de LafargeHolcim Maroc.", "width": 960, "height": 1280, "illustration": false, "sourceId": 19 },
+      { "src": "/projects/maintenance-preventive-lafarge/26.webp", "caption": "Tableau AMDEC fourni : fonctions, modes de défaillance et criticité des sous-ensembles de l’ensacheuse HAVER.", "alt": "Tableau AMDEC de l’ensacheuse HAVER ROTO PACKER.", "width": 425, "height": 757, "illustration": false, "sourceId": 26 },
+      { "src": "/projects/maintenance-preventive-lafarge/24.webp", "caption": "Diagramme de Pareto fourni pour hiérarchiser les familles de défaillances observées.", "alt": "Diagramme de Pareto des défaillances LafargeHolcim.", "width": 467, "height": 382, "illustration": false, "sourceId": 24 },
+      { "src": "/projects/maintenance-preventive-lafarge/25.webp", "caption": "Extrait de la fiche d’aide à la maintenance : organes, modes de défaillance, causes, effets et périodicités proposées.", "alt": "Fiche d’aide à la maintenance préventive de la station de remplissage HAVER.", "width": 597, "height": 632, "illustration": false, "sourceId": 25 },
+      { "src": "/home/20.webp", "caption": "Photographie de terrain prise pendant le stage chez LafargeHolcim Maroc.", "alt": "Mohamed Reda Marzouq sur le site industriel LafargeHolcim.", "width": 960, "height": 1280, "illustration": false, "sourceId": 20 }
     ]
   }
 ];

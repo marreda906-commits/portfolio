@@ -13,7 +13,8 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/mohamed-reda-marzouq",
   // Dépôt public communiqué par le propriétaire.
   github: "https://github.com/marreda906-commits/portfolio",
-  portfolioUrl: "/home/Portfolio_Mohamed_Reda_MARZOUQ.pdf",
+  portfolioUrl: "/home/Portfolio_Mohamed_Reda_MARZOUQ_V2.pdf",
+  portfolioLightUrl: "/home/Portfolio_Mohamed_Reda_MARZOUQ_V2_Legere.pdf",
   cvUrl: "/home/CV_Mohamed_Reda_MARZOUQ.pdf",
   portrait: "/home/01.webp",
   url: process.env.NEXT_PUBLIC_SITE_URL || "",

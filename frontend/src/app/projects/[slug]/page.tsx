@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/data/projects";
 import { ProjectGallery } from "@/components/project-gallery";
+import { assetPath } from "@/config/site";
 
 export function generateStaticParams() { return projects.map(p => ({ slug: p.slug })); }
 export const dynamicParams = false;
@@ -27,11 +28,13 @@ export default async function ProjectPage({ params }: { params: Promise<{slug: s
     <div className="detail-grid"><aside><p className="eyebrow">Domaine</p><p>{project.category}</p><p className="eyebrow">Période</p><p>{project.date}</p></aside><div className="detail-body">
       <section><p className="eyebrow">01 / Le besoin</p><h2>Contexte & objectif</h2><p>{project.background}</p><p className="case-objective">{project.objective}</p></section>
       <section><p className="eyebrow">02 / Le travail réalisé</p><h2>Ma contribution</h2><ul>{project.work.map(w => <li key={w}>{w}</li>)}</ul></section>
+      {project.details && <section className="case-details" aria-label="Détails techniques">{project.details.map(detail => <article key={detail.title}><h2>{detail.title}</h2><p>{detail.body}</p></article>)}</section>}
       <section><p className="eyebrow">03 / Lecture du projet</p><h2>Du besoin à la solution</h2><ol className="workflow">{project.steps.map((s,i) => <li key={s}><span>0{i+1}</span>{s}</li>)}</ol></section>
       <section><p className="eyebrow">04 / Livrables & validation</p><h2>Résultats disponibles</h2><p>{project.outcomes}</p></section>
       <section className="scope-note"><h2>Périmètre du projet</h2><p>{project.scope}</p></section>
     </div></div>
-    {project.gallery.length > 1 && <section className="case-gallery-section"><p className="eyebrow">05 / Documentation visuelle</p><h2>Au plus près du projet.</h2><ProjectGallery media={project.gallery.slice(1)}/></section>}
+    {project.video && <section id="demonstration-video" className="project-video-section"><p className="eyebrow">05 / Démonstration réelle · {project.video.duration}</p><h2>Le prototype en mouvement.</h2><div className="video-frame"><video controls playsInline preload="metadata" poster={assetPath(project.video.poster)} aria-label="Démonstration vidéo du suivi intelligent de voie"><source src={assetPath(project.video.src)} type="video/mp4"/>Votre navigateur ne peut pas lire cette vidéo MP4.</video></div><p className="video-caption">{project.video.caption}</p></section>}
+    {project.gallery.length > 1 && <section className="case-gallery-section"><p className="eyebrow">{project.video ? "06" : "05"} / Documentation visuelle</p><h2>Au plus près du projet.</h2><ProjectGallery media={project.gallery.slice(1)}/></section>}
     <Link className="text-link" href={`/projects/${previous.slug}/`}>← Projet précédent : {previous.title}</Link>
     <div className="next-project"><span className="eyebrow">Poursuivre l’exploration</span><Link href={`/projects/${next.slug}/`}>{next.title}<span aria-hidden="true">↗</span></Link></div>
   </article>;

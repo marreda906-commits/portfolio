@@ -19,7 +19,7 @@ export function ProjectGallery({ media, hero = false }: { media: ProjectMedia[];
         <img src={assetPath(item.src)} alt={item.alt} width={item.width} height={item.height} loading={hero ? "eager" : "lazy"}/>
         <span className="zoom-hint" aria-hidden="true">Agrandir ↗</span>
       </button>
-      <figcaption>{item.illustration && <strong className="provenance">Illustration · provenance à confirmer</strong>}{item.caption}</figcaption>
+      <figcaption>{(item.badge || item.illustration) && <strong className="provenance">{item.badge || "Illustration · provenance à confirmer"}</strong>}{item.caption}</figcaption>
     </figure>)}</div>
     <dialog ref={dialog} className="lightbox" aria-label="Image du projet agrandie" onClose={() => trigger.current?.focus()} onClick={e => { if (e.target === e.currentTarget) close(); }} onKeyDown={e => { if (e.key === "ArrowRight") setSelected((selected + 1) % media.length); if (e.key === "ArrowLeft") setSelected((selected + media.length - 1) % media.length); }}>
       <div className="lightbox-inner"><div className="lightbox-tools"><span>{selected+1} / {media.length}</span><button onClick={close} autoFocus>Fermer ×</button></div>

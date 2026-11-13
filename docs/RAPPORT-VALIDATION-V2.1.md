@@ -1,5 +1,7 @@
 # Rapport de validation — refonte V2.1
 
+> Document historique. La livraison courante est décrite dans `RAPPORT-VALIDATION-V2.2.md`.
+
 Date de validation : 12 novembre 2026
 Branche de travail : `refonte-v2-lafarge-ensam-video`
 

@@ -6,10 +6,12 @@ Portfolio professionnel en français, réalisé à partir du CV fourni : génie 
 
 - Accueil avec identité, portrait optimisé fourni et présentation polyvalente.
 - Neuf études de cas : les huit projets existants et l’étude de maintenance préventive LafargeHolcim.
+- Classement orienté recrutement : YAZAKI, ENSAM puis LafargeHolcim en tête, avec ordre relatif conservé dans chaque filtre.
 - Filtres par domaine, pages détaillées, expériences, formation et compétences.
 - Thèmes sombre et clair, navigation mobile, liens de contact et téléchargement du CV.
 - Galeries agrandissables, démonstration vidéo réelle du suivi de voie et portfolio éditorial A4 V2 de 14 pages distinct du CV.
 - Deux PDF téléchargeables : version haute qualité et version légère.
+- Couvertures finales : photographie devant les écrans ENSAM et photographie devant le four industriel LafargeHolcim.
 - Export statique pour GitHub Pages et workflow de publication automatique.
 - Code original en Next.js 16 / React 19 / TypeScript ; organisation `frontend/src/config`, `src/data`, `src/components`, `src/app` et `public`.
 
@@ -115,6 +117,6 @@ npm.cmd run build
 
 Le dossier `docs` contient l’analyse, la traçabilité du contenu et le compte rendu des vérifications effectuées. La refonte V2.1 est préparée sur la branche `refonte-v2-lafarge-ensam-video` puis publiée sur `main` après validation.
 
-## Livraison V2.1
+## Livraison V2.2
 
-Voir [le rapport de validation V2.1](docs/RAPPORT-VALIDATION-V2.1.md), [la correspondance des médias](docs/ASSET-MAP.md), [le système visuel](docs/DESIGN-SYSTEM.md) et les documents V2 antérieurs pour l’historique.
+Voir [le rapport de validation V2.2](docs/RAPPORT-VALIDATION-V2.2.md), [la correspondance des médias](docs/ASSET-MAP.md), [le système visuel](docs/DESIGN-SYSTEM.md) et les documents V2 antérieurs pour l’historique.

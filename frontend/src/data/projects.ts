@@ -27,16 +27,16 @@ export type Project = {
 };
 
 
-export const projects: Project[] = [
+const projectEntries: Project[] = [
   {
     "slug": "inspection-sertissages",
-    "title": "Inspection intelligente des sertissages — YAZAKI",
+    "title": "YAZAKI — Contrôle qualité automatisé par vision industrielle",
     "context": "YAZAKI Morocco · PFA",
     "date": "2026",
     "category": "Vision & embarqué",
     "featured": true,
     "visual": "vision",
-    "summary": "Inspection des sertissages par vision industrielle, de la détection à la traçabilité.",
+    "summary": "Automatiser l’inspection des sertissages, de la détection par YOLOv5 à la métrologie et à la traçabilité.",
     "tags": [
       "YOLOv5",
       "OpenCV",
@@ -110,12 +110,12 @@ export const projects: Project[] = [
   },
   {
     "slug": "supervision-energetique",
-    "title": "Supervision énergétique — ENSAM Meknès",
+    "title": "ENSAM Meknès — Supervision énergétique & jumeau numérique",
     "context": "IoT & supervision",
     "date": "2026 · En cours",
     "category": "Énergie & commande",
     "visual": "energy",
-    "summary": "Relier acquisition, communication industrielle et interface de supervision pour suivre l’énergie du campus.",
+    "summary": "Interconnecter les équipements électriques, la collecte Modbus et les interfaces de supervision du campus.",
     "tags": [
       "Raspberry Pi",
       "Modbus RTU/TCP",
@@ -143,16 +143,26 @@ export const projects: Project[] = [
       { "title": "Interface & représentation du campus", "body": "Le tableau de bord fourni montre la structure fonctionnelle attendue : indicateurs, profil de consommation, répartition par usage et état des équipements. Les chiffres visibles servent uniquement à illustrer l’interface." }
     ],
     "cover": {
-      "src": "/projects/supervision-energetique/23.webp",
-      "caption": "Maquette du tableau de bord de supervision énergétique ENSAM Meknès. Les valeurs affichées sont illustratives et ne sont pas présentées comme des mesures validées.",
-      "alt": "Maquette du tableau de bord de supervision énergétique du campus ENSAM Meknès.",
-      "width": 1672,
-      "height": 941,
-      "illustration": true,
-      "sourceId": 23,
-      "badge": "Maquette d’interface · données illustratives"
+      "src": "/projects/supervision-energetique/28.webp",
+      "caption": "Photographie de présentation avec la maquette 3D ENSAM Meknès à gauche et une interface d’observatoire à droite portant la mention « Campus Jorf Lasfar ». Les valeurs visibles sont illustratives.",
+      "alt": "Mohamed Reda Marzouq entre deux écrans présentant une maquette 3D ENSAM Meknès et une interface d’observatoire énergétique.",
+      "width": 1448,
+      "height": 1086,
+      "illustration": false,
+      "sourceId": 28,
+      "badge": "Photographie de présentation · écrans illustratifs"
     },
     "gallery": [
+      {
+        "src": "/projects/supervision-energetique/28.webp",
+        "caption": "Photographie de présentation avec la maquette 3D ENSAM Meknès à gauche et une interface d’observatoire à droite portant la mention « Campus Jorf Lasfar ». Les valeurs visibles sont illustratives.",
+        "alt": "Mohamed Reda Marzouq entre deux écrans présentant une maquette 3D ENSAM Meknès et une interface d’observatoire énergétique.",
+        "width": 1448,
+        "height": 1086,
+        "illustration": false,
+        "sourceId": 28,
+        "badge": "Photographie de présentation · écrans illustratifs"
+      },
       {
         "src": "/projects/supervision-energetique/23.webp",
         "caption": "Maquette du tableau de bord de supervision énergétique ENSAM Meknès. Les valeurs affichées sont illustratives et ne sont pas présentées comme des mesures validées.",
@@ -176,12 +186,12 @@ export const projects: Project[] = [
   },
   {
     "slug": "axe-cnc",
-    "title": "Conception électrique d’un axe CNC",
+    "title": "Axe CNC — Conception électrique & commande",
     "context": "Électrotechnique & commande",
     "date": "2026",
     "category": "Énergie & commande",
     "visual": "cnc",
-    "summary": "Dimensionner un servomoteur BLAC et concevoir sa chaîne de puissance et de commande.",
+    "summary": "Dimensionner le servomoteur BLAC, choisir le variateur et concevoir les schémas de puissance et de commande.",
     "tags": [
       "BLAC",
       "AutoCAD Electrical",
@@ -234,12 +244,12 @@ export const projects: Project[] = [
   },
   {
     "slug": "batterie-ve",
-    "title": "Module batterie : thermique & structure",
+    "title": "Batterie de véhicule électrique — Modélisation multiphysique ANSYS",
     "context": "Modélisation multiphysique",
     "date": "2025 – 2026",
     "category": "Mécanique & simulation",
     "visual": "battery",
-    "summary": "Étudier le refroidissement et les contraintes mécaniques d’un module batterie de véhicule électrique.",
+    "summary": "Simuler le refroidissement, les températures et les contraintes thermo-mécaniques d’un module batterie.",
     "tags": [
       "ANSYS",
       "Thermique",
@@ -291,12 +301,12 @@ export const projects: Project[] = [
   },
   {
     "slug": "banc-moteur",
-    "title": "Banc d’essai moteur asynchrone",
+    "title": "Banc d’essai — Moteur asynchrone & charge variable",
     "context": "Machines électriques",
     "date": "2026",
     "category": "Énergie & commande",
     "visual": "motor",
-    "summary": "Mettre en service un moteur asynchrone et étudier son comportement à vide et en charge.",
+    "summary": "Câbler et mettre en service un moteur asynchrone afin d’étudier son fonctionnement à vide et sous charge.",
     "tags": [
       "Moteur asynchrone",
       "Variateur",
@@ -340,12 +350,12 @@ export const projects: Project[] = [
   },
   {
     "slug": "suivi-de-voie",
-    "title": "Suivi intelligent de voie",
+    "title": "Suivi intelligent de voie — OpenCV & système embarqué",
     "context": "Vision embarquée",
     "date": "2025 – 2026",
     "category": "Vision & embarqué",
     "visual": "lane",
-    "summary": "Détecter les marquages routiers et développer une logique de correction de trajectoire.",
+    "summary": "Détecter les marquages avec OpenCV et développer une logique embarquée de correction de trajectoire.",
     "tags": [
       "Python",
       "OpenCV",
@@ -469,7 +479,7 @@ export const projects: Project[] = [
   },
   {
     "slug": "elevateur-godets",
-    "title": "Élévateur à godets",
+    "title": "Élévateur à godets — Dimensionnement mécanique",
     "context": "Dimensionnement mécanique",
     "date": "2024 – 2025",
     "category": "Mécanique & simulation",
@@ -526,12 +536,12 @@ export const projects: Project[] = [
   },
   {
     "slug": "maintenance-preventive-lafarge",
-    "title": "Optimisation de la maintenance préventive des ensacheuses industrielles — LafargeHolcim",
+    "title": "LafargeHolcim — Maintenance préventive & fiabilité industrielle",
     "context": "LafargeHolcim Maroc · Stage",
     "date": "Juillet – août 2025",
     "category": "Maintenance & fiabilité",
     "visual": "maintenance",
-    "summary": "Structurer la maintenance préventive des ensacheuses HAVER ROTO PACKER à partir des défaillances et de la criticité.",
+    "summary": "Analyser les défaillances des ensacheuses HAVER et structurer les priorités de maintenance par AMDEC, Pareto et MTBF.",
     "tags": ["Maintenance préventive", "AMDEC", "Pareto", "MTBF"],
     "objective": "Analyser les défaillances des ensacheuses HAVER ROTO PACKER et établir des priorités ainsi que des fréquences d’intervention préventive.",
     "work": [
@@ -551,15 +561,16 @@ export const projects: Project[] = [
       { "title": "Recommandations établies", "body": "La fiche d’aide relie les organes, modes et causes de défaillance, effets sur le système et périodes d’intervention proposées. Elle constitue un support de préparation de la maintenance." }
     ],
     "cover": {
-      "src": "/home/19.webp",
-      "caption": "Équipement HAVER observé pendant le stage de maintenance chez LafargeHolcim Maroc.",
-      "alt": "Équipement HAVER dans l’environnement industriel de LafargeHolcim Maroc.",
+      "src": "/projects/maintenance-preventive-lafarge/29.webp",
+      "caption": "Mohamed Reda Marzouq devant le four industriel sur le site de LafargeHolcim Maroc.",
+      "alt": "Mohamed Reda Marzouq en équipement de protection devant le four industriel LafargeHolcim.",
       "width": 960,
-      "height": 1280,
+      "height": 960,
       "illustration": false,
-      "sourceId": 19
+      "sourceId": 29
     },
     "gallery": [
+      { "src": "/projects/maintenance-preventive-lafarge/29.webp", "caption": "Mohamed Reda Marzouq devant le four industriel sur le site de LafargeHolcim Maroc.", "alt": "Mohamed Reda Marzouq en équipement de protection devant le four industriel LafargeHolcim.", "width": 960, "height": 960, "illustration": false, "sourceId": 29 },
       { "src": "/home/19.webp", "caption": "Équipement HAVER observé pendant le stage de maintenance chez LafargeHolcim Maroc.", "alt": "Équipement HAVER dans l’environnement industriel de LafargeHolcim Maroc.", "width": 960, "height": 1280, "illustration": false, "sourceId": 19 },
       { "src": "/projects/maintenance-preventive-lafarge/26.webp", "caption": "Tableau AMDEC fourni : fonctions, modes de défaillance et criticité des sous-ensembles de l’ensacheuse HAVER.", "alt": "Tableau AMDEC de l’ensacheuse HAVER ROTO PACKER.", "width": 425, "height": 757, "illustration": false, "sourceId": 26 },
       { "src": "/projects/maintenance-preventive-lafarge/24.webp", "caption": "Diagramme de Pareto fourni pour hiérarchiser les familles de défaillances observées.", "alt": "Diagramme de Pareto des défaillances LafargeHolcim.", "width": 467, "height": 382, "illustration": false, "sourceId": 24 },
@@ -568,3 +579,21 @@ export const projects: Project[] = [
     ]
   }
 ];
+
+const preferredProjectOrder = [
+  "inspection-sertissages",
+  "supervision-energetique",
+  "maintenance-preventive-lafarge",
+  "banc-moteur",
+  "batterie-ve",
+  "axe-cnc",
+  "robot-inspection",
+  "suivi-de-voie",
+  "elevateur-godets",
+] as const;
+
+export const projects: Project[] = preferredProjectOrder.map((slug) => {
+  const project = projectEntries.find((entry) => entry.slug === slug);
+  if (!project) throw new Error(`Projet introuvable dans l’ordre professionnel : ${slug}`);
+  return project;
+});

@@ -1,4 +1,4 @@
-# Correspondance des médias V2
+# Correspondance des médias V2.2
 
 | ID | Projet / usage | Fichier publié | Nature |
 |---|---|---|---|
@@ -30,7 +30,9 @@
 | 26 | maintenance-preventive-lafarge | /projects/maintenance-preventive-lafarge/26.webp | Tableau AMDEC fourni |
 | 27 | suivi-de-voie | /projects/suivi-de-voie/demonstration-suivi-voie.mp4 | Vidéo réelle fournie, recadrée uniquement par suppression des 0,7 premières secondes obstruées |
 | 27a | suivi-de-voie | /projects/suivi-de-voie/poster-demonstration.webp | Image extraite de la vidéo réelle à 9 s |
+| 28 | supervision-energetique | /projects/supervision-energetique/28.webp | Photographie fournie : Mohamed Reda entre la maquette 3D ENSAM Meknès et l’interface d’observatoire |
+| 29 | maintenance-preventive-lafarge | /projects/maintenance-preventive-lafarge/29.webp | Photographie fournie : Mohamed Reda devant le four industriel LafargeHolcim |
 
-## Média volontairement écarté
+## Précision sur la couverture ENSAM
 
-`Jumeau numérique du campus ENSAM.png` n’est pas publié. Ce montage associe une vue ENSAM Meknès à une interface portant la mention « Campus Jorf Lasfar » ; son utilisation aurait créé une confusion géographique et documentaire. Aucun élément de ce montage n’est présenté comme preuve d’un jumeau numérique opérationnel.
+À la demande explicite de Mohamed Reda, la photographie `Jumeau numérique du campus ENSAM.png` est maintenant utilisée comme couverture. Elle n’a subi aucune retouche générative et son cadrage intégral est conservé. L’écran gauche porte « ENSAM Campus – Meknès » et l’écran droit « ENSAM – Campus Jorf Lasfar » ; la légende du site et du PDF le précise, et les valeurs visibles restent qualifiées d’illustratives.

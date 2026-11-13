@@ -34,7 +34,7 @@ manifest={a['id']:a for a in json.loads((args.assets/'selection-et-traitements.j
 def img(media,x,y,w,h):
  source=args.assets/manifest[media['sourceId']]['master'] if media['sourceId'] in manifest else ROOT/'frontend/public'/media['src'].lstrip('/')
  im=PILImage.open(source).convert('RGB');limit=1800 if args.quality=='high' else 1200;im.thumbnail((limit,limit),PILImage.Resampling.LANCZOS)
- if media['sourceId'] in [1,4,5,11,14,15,17,19,20,21,22,27] or args.quality=='light':
+ if media['sourceId'] in [1,4,5,11,14,15,17,19,20,21,22,27,28,29] or args.quality=='light':
   b=io.BytesIO();im.save(b,format='JPEG',quality=90 if args.quality=='high' else 82,subsampling=0,optimize=True);b.seek(0);reader=ImageReader(b)
  else:reader=ImageReader(im)
  scale=min(w/im.width,h/im.height);iw=im.width*scale;ih=im.height*scale;c.setFillColor(paper);c.rect(x,y-h,w,h,fill=1,stroke=0);c.drawImage(reader,x+(w-iw)/2,y-h+(h-ih)/2,iw,ih,mask='auto')
@@ -71,7 +71,7 @@ for e in data['experiences']:
  y=para(e['organization'],left,y,wide,'sub');y=para(e['date']+' / '+e['location'],left,y-5,wide,'small');y=para(e['title'],left,y-10)
  for d in e['details']:y=para('• '+d,left,y-7)
  y-=30
-img({'sourceId':19,'src':'/home/19.webp'},left,y,wide/2-8,180);img({'sourceId':20,'src':'/home/20.webp'},left+wide/2+8,y,wide/2-8,180);y=para('Stage LafargeHolcim : équipement HAVER et photographie de terrain.',left,y-190,wide,'small');end(y)
+img({'sourceId':29,'src':'/projects/maintenance-preventive-lafarge/29.webp'},left,y,wide/2-8,180);img({'sourceId':19,'src':'/home/19.webp'},left+wide/2+8,y,wide/2-8,180);y=para('Stage LafargeHolcim : photographie devant le four industriel et équipement HAVER.',left,y-190,wide,'small');end(y)
 start('Formation & contact');y=para('Construire la suite.',left,755,wide,'title');y-=35
 for e in data['education']:
  y=para(e['date']+' / '+e['place'],left,y,wide,'small');y=para(e['title'],left,y-8,wide,'sub');y=para(e['detail'],left,y-6);y-=25
